@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <GridView android:id="@+id/gridView" android:padding="8dp" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:horizontalSpacing="8dp" android:verticalSpacing="8dp" android:stretchMode="columnWidth" android:columnWidth="100dp" android:numColumns="auto_fit"/>
+    <ListView android:id="@+id/listView" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="#ebebeb" android:dividerHeight="1dp"/>
+    <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+    <RelativeLayout android:id="@+id/error_layout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <TextView android:textSize="16sp" android:id="@+id/helptext" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="Failed to fetch categories from servers" android:layout_centerHorizontal="true"/>
+        <Button android:id="@+id/button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Retry" android:layout_below="@+id/helptext" android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</RelativeLayout>

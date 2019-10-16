@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="#e03f4d" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:id="@+id/image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/red_vegeis" android:scaleType="centerInside" android:adjustViewBounds="true" android:maxHeight="300dp" android:layout_centerHorizontal="true"/>
+        <TextView android:textSize="32sp" android:textStyle="bold" android:textColor="#fff" android:gravity="center" android:id="@+id/header" android:padding="16dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Deals &amp; Discounts" android:layout_below="@+id/image" android:layout_centerHorizontal="true"/>
+        <TextView android:textSize="16sp" android:textColor="#99ffffff" android:gravity="center" android:id="@+id/desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="32dp" android:layout_marginRight="32dp" android:text="Enjoy daily deals and discounts on vegetables and fruits" android:layout_below="@+id/header" android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</RelativeLayout>

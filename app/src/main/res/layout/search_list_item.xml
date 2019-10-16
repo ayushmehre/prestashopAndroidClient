@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <RelativeLayout android:id="@+id/icon_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="16dp" android:layout_centerVertical="true">
+        <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="?android:attr/progressBarStyleSmall"/>
+        <ImageView android:id="@+id/icon" android:layout_width="48dp" android:layout_height="48dp" android:scaleType="centerCrop"/>
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@+id/linearLayout" android:layout_toRightOf="@+id/icon_layout" android:layout_centerVertical="true">
+        <TextView android:textStyle="bold" android:textColor="#000" android:id="@+id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4dp" android:text="Product Name"/>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4dp">
+            <TextView android:textStyle="bold" android:textColor="@color/colorPrimaryDark" android:id="@+id/price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Price"/>
+            <TextView android:textColor="#797979" android:id="@+id/quantity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:text="Quantity"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

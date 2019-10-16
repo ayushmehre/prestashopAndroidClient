@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:background="#fff" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.viewpager.widget.ViewPager android:id="@+id/pager" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/include" android:layout_below="@+id/toolbar"/>
+    <RelativeLayout android:orientation="horizontal" android:id="@+id/toolbar" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize">
+        <ImageView android:padding="16dp" android:clickable="true" android:layout_width="?attr/actionBarSize" android:layout_height="?attr/actionBarSize" android:src="@drawable/ic_close_black_48dp" android:scaleType="centerCrop" android:onClick="close"/>
+        <ImageView android:id="@+id/fav" android:padding="17dp" android:clickable="true" android:layout_width="?attr/actionBarSize" android:layout_height="?attr/actionBarSize" android:src="@drawable/fave_outline" android:scaleType="centerCrop" android:layout_toLeftOf="@+id/cart" android:onClick="close"/>
+        <ImageView android:id="@+id/cart" android:padding="17dp" android:clickable="true" android:layout_width="?attr/actionBarSize" android:layout_height="?attr/actionBarSize" android:src="@drawable/cart_outline" android:scaleType="centerCrop" android:layout_toLeftOf="@+id/share" android:onClick="close"/>
+        <ImageView android:id="@+id/share" android:padding="17dp" android:clickable="true" android:layout_width="?attr/actionBarSize" android:layout_height="?attr/actionBarSize" android:src="@drawable/ic_share_black_48dp" android:scaleType="centerCrop" android:layout_alignParentRight="true" android:onClick="close"/>
+    </RelativeLayout>
+    <include android:id="@+id/include" layout="@layout/add_to_cart_bar"/>
+</RelativeLayout>

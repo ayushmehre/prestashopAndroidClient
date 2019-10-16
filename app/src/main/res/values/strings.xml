@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">PrestashopAndroidClient</string>
+    <array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </array>
+    <array name="listArray">
+        <item>Only when on Wi-Fi</item>
+        <item>On any network</item>
+    </array>
+    <array name="listValues">
+        <item>Wi-Fi</item>
+        <item>Any</item>
+    </array>
+    <array name="locations">
+        <item>Adhartal</item>
+        <item>Adarsh Nagar</item>
+        <item>Bilhari</item>
+        <item>Civil Lines</item>
+        <item>Ranital</item>
+        <item>Russel Chowk</item>
+        <item>Tilhari</item>
+        <item>Vijaynagar</item>
+    </array>
+</resources>

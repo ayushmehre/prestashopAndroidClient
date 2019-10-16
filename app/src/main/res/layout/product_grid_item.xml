@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:background="@color/cardview_light_background" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <ImageView android:id="@+id/icon" android:layout_width="match_parent" android:layout_height="100dp" android:layout_marginBottom="8dp" android:scaleType="centerCrop" android:layout_centerHorizontal="true"/>
+    <TextView android:textStyle="bold" android:textColor="#000" android:gravity="center" android:id="@+id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4dp" android:text="Product Name" android:singleLine="true" android:layout_below="@+id/icon" android:layout_centerHorizontal="true"/>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/info_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4dp" android:layout_below="@+id/name" android:layout_centerHorizontal="true">
+        <TextView android:textStyle="bold" android:textColor="@color/colorPrimaryDark" android:id="@+id/price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Price"/>
+        <TextView android:textColor="#797979" android:id="@+id/quantity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:text="Quantity"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/linearLayout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/info_layout" android:layout_centerHorizontal="true">
+        <ImageView android:layout_gravity="center_vertical" android:id="@+id/add_button" android:padding="8dp" android:layout_width="42dp" android:layout_height="42dp" android:src="@drawable/ic_add_grey600_48dp" android:scaleType="centerInside"/>
+        <TextView android:textSize="20sp" android:textColor="#000" android:gravity="center" android:layout_gravity="center_vertical" android:id="@+id/count" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginLeft="8dp" android:layout_marginRight="8dp" android:text="0" android:layout_toRightOf="@+id/add_button"/>
+        <ImageView android:layout_gravity="center_vertical" android:id="@+id/remove_button" android:padding="8dp" android:layout_width="42dp" android:layout_height="42dp" android:src="@drawable/ic_remove_grey600_48dp" android:scaleType="centerInside" android:layout_toRightOf="@+id/count"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <ImageView android:id="@+id/icon" android:layout_width="42dp" android:layout_height="42dp" android:layout_marginRight="16dp" android:src="@drawable/logo" android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
+    <TextView android:textSize="16sp" android:textColor="#1b1b1b" android:id="@+id/textView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Small Text" android:layout_toRightOf="@+id/icon"/>
+    <TextView android:textSize="14sp" android:textColor="#75000000" android:id="@+id/desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="This is just a short Description, and nothing else." android:layout_toRightOf="@+id/icon" android:layout_below="@+id/textView"/>
+</RelativeLayout>

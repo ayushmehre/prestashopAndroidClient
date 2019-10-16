@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/cart"
+        android:orderInCategory="100"
+        android:title="Cart"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/search"
+        android:orderInCategory="100"
+        android:title="Search"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/view"
+        android:orderInCategory="100"
+        android:title="View as grid"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/sort"
+        android:orderInCategory="100"
+        android:title="Sort"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="#fff" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@+id/image_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ProgressBar android:id="@+id/progressBar2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true"/>
+            <ImageView android:id="@+id/image" android:layout_width="match_parent" android:layout_height="200dp" android:scaleType="centerCrop" android:adjustViewBounds="true"/>
+        </RelativeLayout>
+        <RelativeLayout android:id="@+id/info_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/image_layout" android:layout_centerHorizontal="true">
+            <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="#000" android:id="@+id/pr_name" android:padding="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Product Name" android:layout_centerHorizontal="true"/>
+            <LinearLayout android:orientation="horizontal" android:id="@+id/price_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/pr_name" android:layout_centerHorizontal="true">
+                <TextView android:textSize="14sp" android:textStyle="bold" android:textColor="@color/colorPrimaryDark" android:id="@+id/price" android:paddingRight="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rs.0.00"/>
+                <TextView android:textSize="14sp" android:textColor="#75000000" android:id="@+id/quantity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="- 1 Unit"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@+id/linearLayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" android:layout_below="@+id/info_layout" android:layout_centerHorizontal="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/add_button" android:padding="8dp" android:layout_width="42dp" android:layout_height="42dp" android:src="@drawable/ic_add_grey600_48dp" android:scaleType="centerInside"/>
+            <TextView android:textSize="20sp" android:textColor="#000" android:gravity="center" android:layout_gravity="center_vertical" android:id="@+id/count" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginLeft="8dp" android:layout_marginRight="8dp" android:text="0" android:layout_toRightOf="@+id/add_button"/>
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/remove_button" android:padding="8dp" android:layout_width="42dp" android:layout_height="42dp" android:src="@drawable/ic_remove_grey600_48dp" android:scaleType="centerInside" android:layout_toRightOf="@+id/count"/>
+        </LinearLayout>
+        <TextView android:textSize="16sp" android:textStyle="bold" android:gravity="center" android:id="@+id/done" android:background="#15000000" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:text="DONE" android:layout_below="@+id/linearLayout"/>
+    </RelativeLayout>
+</RelativeLayout>

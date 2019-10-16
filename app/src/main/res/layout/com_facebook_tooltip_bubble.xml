@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <RelativeLayout
+        android:id="@+id/com_facebook_body_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/com_facebook_tooltip_bubble_view_top_pointer"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/com_facebook_button_xout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/com_facebook_tooltip_bubble_view_text_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/com_facebook_button_xout"
+            android:padding="10dp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/com_facebook_tooltip_bubble_view_top_pointer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-10dp" />
+
+    <ImageView
+        android:id="@+id/com_facebook_tooltip_bubble_view_bottom_pointer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/com_facebook_body_frame"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center_vertical|center_horizontal|center"
+        android:layout_marginTop="-13dp"/>
+</RelativeLayout>
