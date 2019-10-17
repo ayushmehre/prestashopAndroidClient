@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class ProductsActivity extends AppCompatActivity {
     private Toolbar mtoolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    public RelativeLayout root;
 
     private class ProductPageAdapter extends FragmentStatePagerAdapter {
         FragmentProductsList[] frags = new FragmentProductsList[this.size];
@@ -67,6 +69,7 @@ public class ProductsActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
+        root = findViewById(R.id.root);
         initializeViews();
         setupActionBar();
         if (categoryToView == null || categoryToView.getChildCategories().size() <= 0) {

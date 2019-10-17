@@ -76,7 +76,12 @@ public class Category {
     }
 
     public boolean isParentOf(Category parentCategory2) {
-        return parentCategory2.getURL().contentEquals(this.parentCategoryURL);
+        try {
+            return parentCategory2.getURL().contentEquals(this.parentCategoryURL);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return true;
+        }
     }
 
     public void addToChildCategories(Category category) {
@@ -89,7 +94,7 @@ public class Category {
 
     public void setId(int id) {
         this.f22id = id;
-        this.URL = "http://www.vegetableshoppy.com/api/categories/" + id;
+        this.URL = "http://www.organicdolchi.com/api/categories/" + id;
     }
 
     public ArrayList<Product> getProducts() {

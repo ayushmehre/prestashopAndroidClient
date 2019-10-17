@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -34,6 +32,7 @@ public class ProductListAdapter extends BaseAdapter {
     /* access modifiers changed from: private */
     public ArrayList<Product> products;
     private final int viewType;
+    private View activity_layout;
 
     public ProductListAdapter(AppCompatActivity activity2, ArrayList<Product> products2, int viewType2) {
         this.activity = activity2;
@@ -42,6 +41,13 @@ public class ProductListAdapter extends BaseAdapter {
         removeNullProductObjects();
     }
 
+    public ProductListAdapter(AppCompatActivity activity2, ArrayList<Product> products2, int viewType2, View activity_layout) {
+        this.activity = activity2;
+        this.products = products2;
+        this.viewType = viewType2;
+        removeNullProductObjects();
+        this.activity_layout = activity_layout;
+    }
     private void removeNullProductObjects() {
         ArrayList<Product> filtered = new ArrayList<>();
         Iterator it = this.products.iterator();
@@ -171,11 +177,12 @@ public class ProductListAdapter extends BaseAdapter {
                         iArr[0] = iArr[0] + 1;
                         count.setText(countInt[0] + "");
                         if (Cart.addItems(new CartItem(product2, 1), ProductListAdapter.this.activity)) {
-                            Snackbar.make(relativeLayout, product2.getProductName() + " added to cart", Snackbar.LENGTH_LONG).setAction("VIEW CART", new OnClickListener() {
+                           /* Snackbar.make(activity_layout, product2.getProductName() + " added to cart", Snackbar.LENGTH_LONG).setAction("VIEW CART", new OnClickListener() {
                                 public void onClick(View view) {
                                     ProductListAdapter.this.activity.startActivity(new Intent(ProductListAdapter.this.activity, CartActivity.class));
                                 }
-                            }).show();
+                            }).show();*/
+                            Toast.makeText(activity, product2.getProductName() + " added to cart", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -188,13 +195,14 @@ public class ProductListAdapter extends BaseAdapter {
                         int[] iArr = countInt;
                         iArr[0] = iArr[0] - 1;
                         count.setText(countInt[0] + "");
-                        if (Cart.removeItems(product3, 1)) {
+                        /*if (Cart.removeItems(product3, 1)) {
                             Snackbar.make(relativeLayout2, product3.getProductName() + " removed from cart", Snackbar.LENGTH_LONG).setAction("VIEW CART", new OnClickListener() {
                                 public void onClick(View view) {
                                     ProductListAdapter.this.activity.startActivity(new Intent(ProductListAdapter.this.activity, CartActivity.class));
                                 }
                             }).show();
-                        }
+                        }*/
+                        Toast.makeText(activity, product2.getProductName() + " removed from cart", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

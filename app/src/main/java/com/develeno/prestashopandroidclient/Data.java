@@ -73,7 +73,7 @@ public class Data {
 
     /* JADX WARNING: Removed duplicated region for block: B:3:0x000c  */
     /* Code decompiled incorrectly, please refer to instructions dump. */
-    private static void organiseProductsIntoCategories() {
+    //private static void organiseProductsIntoCategories() {
         /*
             java.util.ArrayList<com.develeno.prestashopandroidclient.Product> r1 = products
             java.util.Iterator r1 = r1.iterator()
@@ -87,7 +87,15 @@ public class Data {
         L_0x0015:
             return
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.develeno.prestashopandroidclient.Data.organiseProductsIntoCategories():void");
+//        throw new UnsupportedOperationException("Method not decompiled: com.develeno.prestashopandroidclient.Data.organiseProductsIntoCategories():void");
+    //}
+
+    private static void organiseProductsIntoCategories() {
+//        for (Category product: products) {
+//            if(categories.get(0).){
+//
+//            }
+//        }
     }
 
     private static Category getCategoryById(Integer id) {
@@ -127,7 +135,7 @@ public class Data {
         if (currentUser != null) {
             return currentUser;
         }
-        currentUser = (Customer) new Gson().fromJson(PreferenceManager.getDefaultSharedPreferences(context).getString("current", null), Customer.class);
+        currentUser = new Gson().fromJson(PreferenceManager.getDefaultSharedPreferences(context).getString("current", null), Customer.class);
         return currentUser;
     }
 
@@ -142,7 +150,7 @@ public class Data {
 
     public static void setCurrentUser(Customer currentUser2, Context context) {
         currentUser = currentUser2;
-        PreferenceManager.getDefaultSharedPreferences(context).edit().putString("current", new Gson().toJson((Object) currentUser2)).apply();
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putString("current", new Gson().toJson(currentUser2)).apply();
     }
 
     public static void saveData(Context context) {
@@ -221,7 +229,7 @@ public class Data {
 
     public static void removeFromWishList(Product product, Context context) {
         for (int i = 0; i < wishlist.size(); i++) {
-            if (((Product) wishlist.get(i)).getURL().contentEquals(product.getURL())) {
+            if (wishlist.get(i).getURL().contentEquals(product.getURL())) {
                 wishlist.remove(i);
             }
         }

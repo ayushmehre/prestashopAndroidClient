@@ -83,7 +83,7 @@ public class FragmentCategories extends Fragment {
     }
 
     private ArrayList<Category> filterCategories(ArrayList<Category> categories) {
-        String[] blacklisted = {"http://www.vegetableshoppy.com/api/categories/1", "http://www.vegetableshoppy.com/api/categories/2"};
+        String[] blacklisted = {"http://www.organicdolchi.com/api/categories/1", "http://www.organicdolchi.com/api/categories/2"};
         ArrayList<Category> filteredCategories = new ArrayList<>();
         Iterator it = categories.iterator();
         while (it.hasNext()) {
@@ -96,7 +96,8 @@ public class FragmentCategories extends Fragment {
                     if (i >= length) {
                         break;
                     }
-                    if (category.getURL().contentEquals(blacklisted[i])) {
+                    String categoryURL = category.getURL();
+                    if (categoryURL != null && categoryURL.contentEquals(blacklisted[i])) {
                         isBlackListed = true;
                         break;
                     }

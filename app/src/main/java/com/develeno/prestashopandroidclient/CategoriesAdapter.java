@@ -20,7 +20,12 @@ import java.util.Iterator;
 
 public class CategoriesAdapter extends BaseAdapter {
     private final boolean asList;
-    private ArrayList<Category> categories = filterOutParentCategories();
+    private ArrayList<Category> categories;
+
+    {
+        //filterOutParentCategories();
+    }
+
     /* access modifiers changed from: private */
     public Context context;
 
@@ -41,9 +46,7 @@ public class CategoriesAdapter extends BaseAdapter {
 
     private ArrayList<Category> filterOutParentCategories() {
         ArrayList<Category> filteredCategories = new ArrayList<>();
-        Iterator it = this.categories.iterator();
-        while (it.hasNext()) {
-            Category category = (Category) it.next();
+        for (Category category : this.categories) {
             if (category.getParentCategory() == null) {
                 filteredCategories.add(category);
             }

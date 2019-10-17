@@ -1,14 +1,16 @@
 package com.develeno.prestashopandroidclient;
 
 import android.util.Log;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
+
 import org.apache.http.protocol.HTTP;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 public class Parser {
     public static final int PARSE_ADDRESS = 6565656;
@@ -150,7 +152,7 @@ public class Parser {
                 case 4:
                     String text = parser.getText();
                     if (getProductId && text != null) {
-                        product = Data.getProductByURL("http://www.vegetableshoppy.com/api/products/" + text);
+                        product = Data.getProductByURL("http://www.organicdolchi.com/api/products/" + text);
                         getProductId = false;
                     }
                     if (getQuantity && text != null) {
@@ -299,7 +301,7 @@ public class Parser {
                     }
                     if (getId && text != null) {
                         customer.setId(Integer.parseInt(text));
-                        customer.setUrl("http://www.vegetableshoppy.com/api/customers/" + text);
+                        customer.setUrl("http://www.organicdolchi.com/api/customers/" + text);
                         getId = false;
                         break;
                     }
@@ -356,9 +358,9 @@ public class Parser {
                     } else {
                         getName = true;
                     }
-                   /* if (tagName.contentEquals(ShareConstants.WEB_DIALOG_PARAM_ID)) {
+                    if (tagName.contentEquals("id")) {
                         getId = true;
-                    }*/
+                    }
                     if (tagName.contentEquals("description")) {
                         descTagStarted = true;
                     } else if (!tagName.contentEquals("language") || !descTagStarted) {
@@ -393,6 +395,7 @@ public class Parser {
                         gotCategory = true;
                         break;
                     }
+                    break;
                 case 4:
                     String text = parser.getText();
                     if (getName) {
@@ -412,7 +415,11 @@ public class Parser {
                        // getSale = false;
                     }
                     if (getMinimalQuantity) {
-                        product.setMinQuantity(Integer.parseInt(text));
+                        try {
+                            product.setMinQuantity(Integer.parseInt(text));
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
                         getMinimalQuantity = false;
                     }
                     if (getunitName) {
@@ -463,20 +470,26 @@ public class Parser {
                     if (startTag.contentEquals("level_depth")) {
                         getDepth = true;
                     }
-                   /* if (startTag.contentEquals(ShareConstants.WEB_DIALOG_PARAM_ID)) {
+                    if (startTag.contentEquals("id")) {
                         getId = true;
-                    }*/
+                    }
                     if (startTag.contentEquals("id_parent") && parser.getAttributeCount() > 0) {
                         category.setParentCategoryURL(parser.getAttributeValue(0));
                         break;
                     }
+                    break;
                 case 4:
                     if (parseText && !gotName) {
                         category.setLabel(parser.getText());
                         gotName = true;
                     }
                     if (getDepth) {
-                        category.setDepth(Integer.parseInt(parser.getText()));
+                        try {
+                            category.setDepth(Integer.parseInt(parser.getText()));
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                            category.setDepth(0);
+                        }
                         getDepth = false;
                     }
                     if (!getId) {

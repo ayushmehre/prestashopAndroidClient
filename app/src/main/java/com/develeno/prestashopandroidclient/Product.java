@@ -118,14 +118,11 @@ public class Product {
 
     public void setId(int id) {
         this.f24id = Integer.valueOf(id);
-        this.URL = "http://www.vegetableshoppy.com/api/products/" + id;
+        this.URL = "http://www.organicdolchi.com/api/products/" + id;
     }
 
     public boolean isAvailInStocks() {
         StockInfo stockInfo = Data.getStockInfoByProductId(this.f24id.intValue());
-        if ((stockInfo != null ? stockInfo.getQuantity() : 0) > 0) {
-            return true;
-        }
-        return false;
+        return (stockInfo != null ? stockInfo.getQuantity() : 0) > 0;
     }
 }

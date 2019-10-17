@@ -58,7 +58,8 @@ public class FragmentProductsList extends Fragment {
         this.currentViewType = ProductListAdapter.LIST;
         this.listView.setVisibility(View.VISIBLE);
         this.gridView.setVisibility(View.GONE);
-        this.productListAdapter = new ProductListAdapter((AppCompatActivity) getActivity(), new ArrayList<Product>(), ProductListAdapter.LIST);
+        ProductsActivity activity = ((ProductsActivity) getActivity());
+        this.productListAdapter = new ProductListAdapter((AppCompatActivity) getActivity(), new ArrayList<Product>(), ProductListAdapter.LIST, activity.root);
         this.listView.setAdapter(this.productListAdapter);
         if (this.categoryToView != null) {
             products = this.categoryToView.getProducts();
