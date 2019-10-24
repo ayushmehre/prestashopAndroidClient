@@ -17,7 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-    private static MainActivity mainActivity;
+    public static MainActivity mainActivity;
     private OnGotResponse listener;
     private Toolbar mtoolbar;
     private ViewPager pager;
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupActionBar() {
         setSupportActionBar(this.mtoolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Vegetable Shoppy");
+        getSupportActionBar().setTitle(R.string.app_name);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

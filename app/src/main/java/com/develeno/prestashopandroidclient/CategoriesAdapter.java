@@ -2,7 +2,6 @@ package com.develeno.prestashopandroidclient;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,7 +70,7 @@ public class CategoriesAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View v;
         LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        Category category = this.categories.get(i);
+        final Category category = this.categories.get(i);
         if (this.asList) {
             v = inflater.inflate(R.layout.category_item, viewGroup, false);
         } else {
@@ -93,7 +94,7 @@ public class CategoriesAdapter extends BaseAdapter {
         } else {
             openProductsActivity(v, category);
         }
-        category.getImage(new OnBackgroundTaskCompleted() {
+        /*category.getImage(new OnBackgroundTaskCompleted() {
             public void getResult(Object result) {
                 if (result != null) {
                     icon.setImageBitmap((Bitmap) result);
@@ -102,7 +103,21 @@ public class CategoriesAdapter extends BaseAdapter {
 
             public void refresh(Object result) {
             }
+        });*/
+
+        category.getImageInBackground(new OnBackgroundTaskCompleted() {
+            @Override
+            public void getResult(Object obj) {
+                String img_link = category.getImg_link();
+                Picasso.with(context).load(img_link).into(icon);
+            }
+
+            @Override
+            public void refresh(Object obj) {
+
+            }
         });
+
         return v;
     }
 

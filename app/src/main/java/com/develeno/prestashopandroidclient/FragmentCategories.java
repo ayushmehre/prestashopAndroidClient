@@ -13,8 +13,15 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class FragmentCategories extends Fragment {
     /* access modifiers changed from: private */
@@ -24,6 +31,7 @@ public class FragmentCategories extends Fragment {
     private RelativeLayout errorLayout;
     private GridView gridView;
     private ProgressBar progressBar;
+    private ArrayList<Category> newCategories = new ArrayList<>();
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.frag_categories, container, false);
@@ -57,6 +65,10 @@ public class FragmentCategories extends Fragment {
                 public void getResult(Object result) {
                     FragmentCategories.this.fetchStockInfos();
                     FragmentCategories.this.displayCategories((ArrayList) result);
+                    //createCategoriesInFirebase((ArrayList<Category>) result);
+                    if (result != null) {
+                        fetchAllCategoriesInFirebase((ArrayList<Category>) result);
+                    }
                 }
 
                 public void refresh(Object result) {
@@ -65,6 +77,40 @@ public class FragmentCategories extends Fragment {
         } else {
             displayCategories(Data.getCategories());
         }
+    }
+
+    private void createCategoriesInFirebase(ArrayList<Category> result) {
+        for (Category category : result) {
+            Map<String, String> map = new HashMap<>();
+            map.put("img_link", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB28hGVMiQ44C686Q-Dsv7-xdlLjZI8I4KDhY5s2WxeK0wj0E7&s");
+            FirebaseFirestore.getInstance().collection("categories")
+                    .document(category.getLabel().toLowerCase()).set(map);
+        }
+    }
+
+    private void fetchAllCategoriesInFirebase(final ArrayList<Category> result) {
+        //Fetching categories
+        FirebaseFirestore.getInstance().collection("categories")
+                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for (Category category : result) {
+                    boolean exists = false;
+                    for (DocumentSnapshot snapshot : queryDocumentSnapshots) {
+                        if (snapshot.getId().equalsIgnoreCase(category.getLabel())) {
+                            exists = true;
+                        }
+                    }
+                    if (!exists) {
+                        newCategories.add(category);
+                    }
+                }
+
+                //Creating new Categories
+                createCategoriesInFirebase(newCategories);
+            }
+        });
+
     }
 
     /* access modifiers changed from: private */
@@ -80,6 +126,8 @@ public class FragmentCategories extends Fragment {
         }
         this.gridView.setVisibility(View.GONE);
         this.errorLayout.setVisibility(View.VISIBLE);
+
+
     }
 
     private ArrayList<Category> filterCategories(ArrayList<Category> categories) {

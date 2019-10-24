@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">PrestashopAndroidClient</string>
+    <string name="app_name">Organic Dolchi</string>
+    <string name="splash_1_title">100% Organic</string>
+    <string name="splash_1_desc">Get adulteration free, 100% certified organic produce delivered to your doorstep</string>
+    <string name="splash_2_title">Wide Variety</string>
+    <string name="splash_2_desc">Get all kitchen usable items like Aata, Daal, Chaaval, Masaale, Ghee, Shahad, Tel with organic hair color and cosmetics</string>
+    <string name="splash_3_desc">Get always the fresh offers and new discount schemes provided by company</string>
+    <string name="splash_3_title"><![CDATA[Deals & Discounts]]></string>
     <array name="gender">
         <item>Male</item>
         <item>Female</item>

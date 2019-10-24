@@ -2,6 +2,10 @@ package com.develeno.prestashopandroidclient;
 
 import android.graphics.Bitmap;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -18,6 +22,7 @@ public class Category {
     private String label = "Unnamed Category";
     private Category parentCategory;
     private String parentCategoryURL;
+    private String img_link;
 
     public int getImageId() {
         return this.imageId;
@@ -117,7 +122,7 @@ public class Category {
         }
     }
 
-    private void getImageInBackground(final OnBackgroundTaskCompleted taskCompleted) {
+    public void getImageInBackground(final OnBackgroundTaskCompleted taskCompleted) {
         /*ParseQuery<ParseObject> query = ParseQuery.getQuery("Categories");
         query.whereEqualTo("category_id", Integer.valueOf(this.f22id));
         query.getFirstInBackground(new GetCallback<ParseObject>() {
@@ -139,9 +144,29 @@ public class Category {
                 }
             }
         });*/
+
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseFirestore.collection("categories")
+                .document(label.toLowerCase()).get().
+                addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        String img_link = documentSnapshot.getString("img_link");
+                        Category.this.img_link = img_link;
+                        taskCompleted.getResult(null);
+                    }
+                });
     }
 
     public void setImage(Bitmap image2) {
         this.image = image2;
+    }
+
+    public String getImg_link() {
+        return img_link;
+    }
+
+    public void setImg_link(String img_link) {
+        this.img_link = img_link;
     }
 }

@@ -14,7 +14,6 @@ import android.view.ViewConfiguration;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -60,6 +59,7 @@ public class SplashScreen extends AppCompatActivity {
             public void onPageSelected(int position) {
                 if (position == 3) {
                     layout.setVisibility(View.GONE);
+                    //hideNavigationBar();
                 } else {
                     layout.setVisibility(View.VISIBLE);
                 }
@@ -79,7 +79,10 @@ public class SplashScreen extends AppCompatActivity {
                 viewPager.setCurrentItem(viewPager.getChildCount() - 1, true);
             }
         });
-        hideNavigationBar();
+        //hideNavigationBar();
+
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+        //getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimary));
     }
 
     private void setupBottomBar() {

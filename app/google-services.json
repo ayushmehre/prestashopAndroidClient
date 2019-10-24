@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "130589320640",
+    "firebase_url": "https://organic-dolchi-fd278.firebaseio.com",
+    "project_id": "organic-dolchi-fd278",
+    "storage_bucket": "organic-dolchi-fd278.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130589320640:android:d7eaa161f9845dc4b9d425",
+        "android_client_info": {
+          "package_name": "com.develeno.prestashopandroidclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "130589320640-9vqrt8j9n77tsqh5p9lcb2moe4jkeths.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL2Clk1TMnU08AVWL3LI0x4qx8V_A-jOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "130589320640-9vqrt8j9n77tsqh5p9lcb2moe4jkeths.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.gms.fitness.FitnessStatusCodes;
-
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,7 +20,7 @@ import java.util.TimerTask;
 public class FragmentHome extends Fragment {
     boolean areProductsFetched;
     /* access modifiers changed from: private */
-    public ArrayList<SliderOffer> offers;
+    public ArrayList<SliderOffer> offers = new ArrayList<>();
     private View recentlayout;
     private ViewGroup rootView;
     private int size;
@@ -51,40 +49,25 @@ public class FragmentHome extends Fragment {
         }
     }
 
-    class SliderOffer {
-        private String desc;
-        private String heading;
-        private String title;
+    private void fetchOffers(final ViewGroup rootView2) {
+       /* ParseQuery.getQuery("SliderOffers").findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> objects, ParseException e) {
+                rootView2.findViewById(R.id.progressBar4).setVisibility(View.GONE);
+                if (e == null) {
+                    FragmentHome.this.offers = new ArrayList();
+                    for (ParseObject obj : objects) {
+                        FragmentHome.this.offers.add(new SliderOffer(obj));
+                    }
+                    FragmentHome.this.createPager();
+                }
+            }
+        });*/
 
-        public SliderOffer(Object obj) {
-            this.title = "Title";//obj.getString("title");
-            this.heading = "Heading"; //obj.getString("heading");
-            this.desc ="Description";// obj.getString("description");
+        for (int i = 0; i < 3; i++) {
+            offers.add(new SliderOffer("Diwali Offer", "10% Flat Discount", "Purchase any items from store worth Rs.500 or more and get flat 10% discount"));
         }
-
-        public String getTitle() {
-            return this.title;
-        }
-
-        public void setTitle(String title2) {
-            this.title = title2;
-        }
-
-        public String getHeading() {
-            return this.heading;
-        }
-
-        public void setHeading(String heading2) {
-            this.heading = heading2;
-        }
-
-        public String getDesc() {
-            return this.desc;
-        }
-
-        public void setDesc(String desc2) {
-            this.desc = desc2;
-        }
+        createPager();
+        rootView.findViewById(R.id.progressBar4).setVisibility(View.GONE);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -218,29 +201,56 @@ public class FragmentHome extends Fragment {
         }
     }
 
-    private void fetchOffers(final ViewGroup rootView2) {
-       /* ParseQuery.getQuery("SliderOffers").findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> objects, ParseException e) {
-                rootView2.findViewById(R.id.progressBar4).setVisibility(View.GONE);
-                if (e == null) {
-                    FragmentHome.this.offers = new ArrayList();
-                    for (ParseObject obj : objects) {
-                        FragmentHome.this.offers.add(new SliderOffer(obj));
-                    }
-                    FragmentHome.this.createPager();
-                }
-            }
-        });*/
-    }
-
     /* access modifiers changed from: private */
     public void createPager() {
         ViewPager pager = this.rootView.findViewById(R.id.pager);
         pager.setAdapter(new BannerAdapter(getChildFragmentManager(), this.offers));
-        enableAutoScroll(pager, FitnessStatusCodes.NEEDS_OAUTH_PERMISSIONS);
+        enableAutoScroll(pager, 1500);
         LinearLayout indicator = this.rootView.findViewById(R.id.indicator);
         this.size = this.offers.size();
         new IndicatorAdapter(this.size, indicator, getActivity(), pager);
+    }
+
+    class SliderOffer {
+        private String desc;
+        private String heading;
+        private String title;
+
+        public SliderOffer(Object obj) {
+            this.title = "Title";//obj.getString("title");
+            this.heading = "Heading"; //obj.getString("heading");
+            this.desc = "Description";// obj.getString("description");
+        }
+
+        public SliderOffer(String title, String heading, String desc) {
+            this.title = title;
+            this.heading = heading;
+            this.desc = desc;
+        }
+
+        public String getTitle() {
+            return this.title;
+        }
+
+        public void setTitle(String title2) {
+            this.title = title2;
+        }
+
+        public String getHeading() {
+            return this.heading;
+        }
+
+        public void setHeading(String heading2) {
+            this.heading = heading2;
+        }
+
+        public String getDesc() {
+            return this.desc;
+        }
+
+        public void setDesc(String desc2) {
+            this.desc = desc2;
+        }
     }
 
     private void enableAutoScroll(ViewPager pager, int interval) {

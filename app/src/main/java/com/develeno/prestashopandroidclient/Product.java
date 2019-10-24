@@ -122,7 +122,12 @@ public class Product {
     }
 
     public boolean isAvailInStocks() {
-        StockInfo stockInfo = Data.getStockInfoByProductId(this.f24id.intValue());
-        return (stockInfo != null ? stockInfo.getQuantity() : 0) > 0;
+        try {
+            StockInfo stockInfo = Data.getStockInfoByProductId(this.f24id.intValue());
+            return (stockInfo != null ? stockInfo.getQuantity() : 0) > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

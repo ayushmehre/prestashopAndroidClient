@@ -1,8 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="#fdba74" android:layout_width="match_parent" android:layout_height="match_parent">
-    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
-        <ImageView android:id="@+id/image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/orange_vegetable" android:scaleType="centerInside" android:adjustViewBounds="true" android:maxHeight="300dp" android:layout_centerHorizontal="true"/>
-        <TextView android:textSize="32sp" android:textStyle="bold" android:textColor="#fff" android:gravity="center" android:id="@+id/header" android:padding="16dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Wide Variety" android:layout_below="@+id/image" android:layout_centerHorizontal="true"/>
-        <TextView android:textSize="16sp" android:textColor="#99ffffff" android:gravity="center" android:id="@+id/desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="32dp" android:layout_marginRight="32dp" android:text="Choose from wide variety of Vegetables &amp; Fruits" android:layout_below="@+id/header" android:layout_centerHorizontal="true"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:maxHeight="120dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/splash_2" />
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/product_sans_bold"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/splash_2_title"
+            android:textColor="#000"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:fontFamily="@font/product_sans_regular"
+            android:gravity="center"
+            android:text="@string/splash_2_desc"
+            android:textColor="#99000000"
+            android:textSize="16sp" />
     </RelativeLayout>
 </RelativeLayout>

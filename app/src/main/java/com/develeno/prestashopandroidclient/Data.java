@@ -121,14 +121,19 @@ public class Data {
     }
 
     public static Product getProductByURL(String URL) {
-        Iterator it = products.iterator();
-        while (it.hasNext()) {
-            Product product = (Product) it.next();
-            if (product.getURL().contentEquals(URL)) {
-                return product;
+        try {
+            Iterator it = products.iterator();
+            while (it.hasNext()) {
+                Product product = (Product) it.next();
+                if (product.getURL().contentEquals(URL)) {
+                    return product;
+                }
             }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public static Customer getCurrentUser(Context context) {
@@ -247,13 +252,17 @@ public class Data {
     }
 
     private static void saveRecents(Context context) {
-        Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
-        Set<String> set = new LinkedHashSet<>();
-        Iterator it = recents.iterator();
-        while (it.hasNext()) {
-            set.add(((Product) it.next()).getURL());
+        try {
+            Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+            Set<String> set = new LinkedHashSet<>();
+            Iterator it = recents.iterator();
+            while (it.hasNext()) {
+                set.add(((Product) it.next()).getURL());
+            }
+            editor.putStringSet("recents", set).apply();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        editor.putStringSet("recents", set).apply();
     }
 
     public static void addToRecents(Product product, Context context) {
@@ -322,8 +331,13 @@ public class Data {
     }
 
     public static boolean isAvailLocally(String id) {
-        String root = Environment.getExternalStorageDirectory().toString();
-        return new File(root + "/" + id.replace("/", "").replace(":", "").replace(".", "") + ".jpg").exists();
+        try {
+            String root = Environment.getExternalStorageDirectory().toString();
+            return new File(root + "/" + id.replace("/", "").replace(":", "").replace(".", "") + ".jpg").exists();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public static String getFileIfAvailLocally(String id) {

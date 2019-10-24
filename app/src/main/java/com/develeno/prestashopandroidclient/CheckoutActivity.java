@@ -1,13 +1,11 @@
 package com.develeno.prestashopandroidclient;
 
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -19,7 +17,7 @@ public class CheckoutActivity extends AppCompatActivity {
     public static boolean isAddressSelected;
 //    private CallbackManager callbackManager;
     /* access modifiers changed from: private */
-    public MyLocation myLocation;
+//    public MyLocation myLocation;
     /* access modifiers changed from: private */
     public ViewPager pager;
 
@@ -56,7 +54,7 @@ public class CheckoutActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout2);
-        this.myLocation = MyLocation.getInstance(this, new OnDoneListener() {
+        /*this.myLocation = MyLocation.getInstance(this, new OnDoneListener() {
             public void done() {
                 CheckoutActivity.this.myLocation.startLocationUpdates();
                 Location location = CheckoutActivity.this.myLocation.getLastLocation();
@@ -64,7 +62,7 @@ public class CheckoutActivity extends AppCompatActivity {
                     Toast.makeText(CheckoutActivity.this, location.getLatitude() + "", 0).show();
                 }
             }
-        });
+        });*/
 //        FacebookSdk.sdkInitialize(this);
 //        this.callbackManager = Factory.create();
         final TextView back = findViewById(R.id.back);
@@ -132,9 +130,9 @@ public class CheckoutActivity extends AppCompatActivity {
 
     /* access modifiers changed from: protected */
     public void onPause() {
-        if (this.myLocation != null) {
-            this.myLocation.stopLocationUpdates();
-        }
+//        if (this.myLocation != null) {
+//            this.myLocation.stopLocationUpdates();
+//        }
         super.onPause();
     }
 

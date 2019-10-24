@@ -4,19 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView android:scaleType="centerCrop"
+    <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg_v" />
+        android:scaleType="centerInside"
+        android:src="@drawable/poster_1" />
 
     <ImageView
+        android:layout_height="400dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
         android:scaleType="fitXY"
-        android:src="@drawable/overlay" />
+        android:src="@drawable/overlay_splash"
+        android:visibility="visible" />
 
     <RelativeLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/relativeLayout"
@@ -53,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="48dp">
+        android:layout_marginBottom="0dp">
 
         <Button
             android:id="@+id/signIn"
@@ -62,8 +66,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/rounded_rect_border"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_rect"
             android:maxWidth="400dp"
             android:onClick="signIn"
             android:text="Sign In"
@@ -78,7 +82,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="32dp"
-            android:background="@drawable/rounded_rect_border"
+            android:background="@drawable/rounded_rect"
             android:maxWidth="400dp"
             android:onClick="start"
             android:text="Get Started"

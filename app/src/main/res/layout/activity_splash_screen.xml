@@ -15,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="48dp"
-        android:background="#20000000">
+        android:background="@color/colorPrimary">
 
         <TextView
             android:id="@+id/skip"

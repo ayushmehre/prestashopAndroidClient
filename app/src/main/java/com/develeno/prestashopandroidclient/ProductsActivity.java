@@ -83,7 +83,9 @@ public class ProductsActivity extends AppCompatActivity {
             this.tabLayout.setVisibility(View.GONE);
             return;
         }
-        setupViewPager();
+        if (productsToView != null && productsToView.size() > 0) {
+            setupViewPager();
+        }
     }
 
     /* access modifiers changed from: protected */

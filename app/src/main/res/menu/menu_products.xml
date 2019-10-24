@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/cart"
+        android:icon="@drawable/ic_cartx"
         android:orderInCategory="100"
         android:title="Cart"
         app:showAsAction="always" />
     <item
         android:id="@+id/search"
+        android:icon="@drawable/ic_searchx"
         android:orderInCategory="100"
         android:title="Search"
         app:showAsAction="always" />
